@@ -10,7 +10,7 @@ class MessageBoard < Sinatra::Base
 
   post '/message' do
     @message = params[:message]
-    erb :message
+    redirect '/'
   end
 
   run! if app_file == $0
