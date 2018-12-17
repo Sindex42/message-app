@@ -5,11 +5,12 @@ class MessageBoard < Sinatra::Base
   set :session_secret, 'super secret'
 
   get '/' do
+    @message = session[:message]
     erb :index
   end
 
   post '/message' do
-    @message = params[:message]
+    session[:message] = params[:message]
     redirect '/'
   end
 
