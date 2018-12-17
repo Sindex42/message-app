@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require './lib/message'
 
 class MessageBoard < Sinatra::Base
   enable :sessions
@@ -10,7 +11,7 @@ class MessageBoard < Sinatra::Base
   end
 
   post '/message' do
-    session[:message] = params[:message]
+    session[:message] = Message.new(params[:message])
     redirect '/'
   end
 
