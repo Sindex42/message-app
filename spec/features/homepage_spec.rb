@@ -1,13 +1,11 @@
-feature 'Testing the homepage' do
-  scenario 'it displays a header' do
-    visit '/'
+feature 'Displaying the homepage' do
+  background { visit '/' }
 
+  scenario 'it displays a header' do
     expect(page).to have_content 'Messaging App'
   end
 
   scenario 'it displays a form' do
-    visit '/'
-
     find_field('Type message here').value
     find_button('Submit').click
   end
