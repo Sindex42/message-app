@@ -1,9 +1,13 @@
 class History
+  def initialize
+    @messages = []
+  end
+
   def add(message)
-    @message = message
+    @messages << message
   end
 
   def log
-    @message
+    @messages
   end
 end
