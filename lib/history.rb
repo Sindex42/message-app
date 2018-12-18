@@ -1,4 +1,5 @@
 class History
+
   def initialize
     @messages = []
   end
@@ -10,4 +11,14 @@ class History
   def log
     @messages
   end
+
+  def display
+    x = @messages.map do |message|
+      "#{message.time} -- #{message.text}"
+    end
+    x
+  end
+
+
+
 end

@@ -8,16 +8,19 @@ class MessageBoard < Sinatra::Base
 
   get '/' do
     session.clear
+    session[:history] = History.new
     redirect '/log'
   end
 
   get '/log' do
-    @message = session[:message]
+    @history = session[:history]
     erb :index
   end
 
   post '/message' do
-    session[:message] = Message.new(params[:message])
+    #session[:message] = Message.new(params[:message])
+    @history = session[:history]
+    @history.add(Message.new(params[:message]))
     redirect '/log'
   end
 

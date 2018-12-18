@@ -22,6 +22,16 @@ describe History do
     end
   end
 
+  context 'printing messages' do
+    it 'prints message body and time' do
+      allow(message_1).to receive(:time) { "10:30" }
+      allow(message_1).to receive(:text) { "Testy testing" }
+      history.add(message_1)
+
+      expect(history.display).to eq ["#{message_1.time} -- #{message_1.text}"]
+    end
+  end
+
 
 
 end
