@@ -8,7 +8,6 @@ class MessageBoard < Sinatra::Base
 
   get '/' do
     session.clear
-    session[:history] = History.new
     redirect '/log'
   end
 
@@ -22,6 +21,8 @@ class MessageBoard < Sinatra::Base
     session[:messages] << Message.new(params[:message])
     redirect '/log'
   end
+
+  get '/messages/'
 
   run! if app_file == $0
 end

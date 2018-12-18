@@ -14,4 +14,13 @@ feature 'Submitting a message' do
     expect(page).to have_content 'Just foo, no bar'
     expect(page).to have_content 'Just bar, no foo'
   end
+
+  scenario 'it displays only the first 20 characters of a message' do
+    visit '/'
+    fill_in :message, with: 'MessageExceeds20Character'
+    click_button 'Submit'
+
+    expect(page).to have_content 'MessageExceeds20Char'
+    expect(page).not_to have_content 'acter'
+  end
 end

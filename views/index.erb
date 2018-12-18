@@ -1,12 +1,20 @@
-<h1>Messaging App</h1>
-
-<form action="/message" method="post">
-  <input type="text" name="message" placeholder="Type message here">
-  <input type="submit" value="Submit">
-</form>
-
-<% @messages.reverse.each do |message| %>
-  <div>
-    <%= message.text %> | <%= message.time %>
-  </div>
-<% end %>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Messaging App</h1>
+    <form action="/message" method="post">
+      <input type="text" name="message" placeholder="Type message here">
+      <input type="submit" value="Submit">
+    </form>
+    <br>
+    <% @messages.reverse.each do |message| %>
+      <div>
+        <a href="https://en.wikipedia.org/wiki/Main_Page"><%= message.text.slice(0...20) %></a> | <%= message.time %>
+      </div>
+    <% end %>
+  </body>
+</html>
