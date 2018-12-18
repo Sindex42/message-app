@@ -4,6 +4,7 @@ require './message_app'
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
+require './spec/features/web_helper'
 
 require './spec/features/web_helper'
 
