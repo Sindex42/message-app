@@ -5,12 +5,8 @@
   <input type="submit" value="Submit">
 </form>
 
-<<<<<<< HEAD
-<%= @history.display %>
-=======
 <% @messages.reverse.each do |message| %>
   <div>
     <%= message.text %> | <%= message.time %>
   </div>
 <% end %>
->>>>>>> b148565
