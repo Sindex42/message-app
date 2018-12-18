@@ -6,13 +6,18 @@ class MessageBoard < Sinatra::Base
   set :session_secret, 'super secret'
 
   get '/' do
+    session.clear
+    redirect '/log'
+  end
+
+  get '/log' do
     @message = session[:message]
     erb :index
   end
 
   post '/message' do
     session[:message] = Message.new(params[:message])
-    redirect '/'
+    redirect '/log'
   end
 
   run! if app_file == $0
