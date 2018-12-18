@@ -4,6 +4,7 @@ require './message_app.rb'
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
+require './spec/features/web_helper'
 
 Capybara.app = MessageBoard
 

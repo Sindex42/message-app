@@ -5,4 +5,8 @@
   <input type="submit" value="Submit">
 </form>
 
-<%= "#{@message.time} -- #{@message.text}" unless @message.nil? %>
+<% @messages.reverse.each do |message| %>
+  <div>
+    <%= message.text %> | <%= message.time %>
+  </div>
+<% end %>

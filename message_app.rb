@@ -11,12 +11,13 @@ class MessageBoard < Sinatra::Base
   end
 
   get '/log' do
-    @message = session[:message]
+    session[:messages] ||= []
+    @messages = session[:messages]
     erb :index
   end
 
   post '/message' do
-    session[:message] = Message.new(params[:message])
+    session[:messages] << Message.new(params[:message])
     redirect '/log'
   end
 
