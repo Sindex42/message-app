@@ -1,9 +1,11 @@
 ENV['RACK_ENV'] = 'test'
 
-require './message_app.rb'
+require './message_app'
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
+
+require './spec/features/web_helper'
 
 Capybara.app = MessageBoard
 
