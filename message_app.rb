@@ -21,5 +21,11 @@ class MessageBoard < Sinatra::Base
     redirect '/log'
   end
 
+  get '/messages/:id' do
+    @messages = session[:messages]
+    @id = params[:id]
+    erb(:messages)
+  end
+
   run! if app_file == $0
 end

@@ -1,0 +1,5 @@
+<% @messages.each do |message| %>
+  <% if message.id == @id.to_i %>
+    <%= message.text %>
+  <% end %>
+<% end %>
