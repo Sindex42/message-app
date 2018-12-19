@@ -11,4 +11,13 @@ describe Message do
   it 'saves the current time' do
     expect(message.time).to eq time_double
   end
+
+  it 'first message saves its id as 1' do
+    Message.id_reset
+    expect(subject.id).to eq 1
+  end
+
+  it 'second message saves its id as 2' do
+    expect(subject.id).to eq 2
+  end
 end
