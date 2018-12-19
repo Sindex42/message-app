@@ -1,6 +1,5 @@
 require 'sinatra/base'
 require './lib/message'
-require './lib/history'
 
 class MessageBoard < Sinatra::Base
   enable :sessions
@@ -21,8 +20,6 @@ class MessageBoard < Sinatra::Base
     session[:messages] << Message.new(params[:message])
     redirect '/log'
   end
-
-  get '/messages/'
 
   run! if app_file == $0
 end

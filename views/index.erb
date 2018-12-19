@@ -13,7 +13,8 @@
     <br>
     <% @messages.reverse.each do |message| %>
       <div>
-        <a href="https://en.wikipedia.org/wiki/Main_Page"><%= message.text.slice(0...20) %></a> | <%= message.time %>
+        <a href="https://en.wikipedia.org/wiki/Main_Page"><%= message.text.slice(0...20) %></a> --
+          <%= message.time %>
       </div>
     <% end %>
   </body>
