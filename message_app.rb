@@ -1,8 +1,6 @@
-require 'data_mapper'
 require 'pry'
 require 'sinatra/base'
 require './lib/message'
-
 require './config/data_mapper'
 
 class MessageBoard < Sinatra::Base
@@ -19,8 +17,7 @@ class MessageBoard < Sinatra::Base
   end
 
   get '/messages/:id' do
-    @messages = Message.all
-    @id = params[:id]
+    @message = Message.get(params[:id])
     erb(:messages)
   end
 
