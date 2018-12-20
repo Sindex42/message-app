@@ -1,28 +1,25 @@
+require 'data_mapper'
+require 'pry'
 require 'sinatra/base'
 require './lib/message'
 
+require './config/data_mapper'
+
 class MessageBoard < Sinatra::Base
   enable :sessions
-  set :session_secret, 'super secret'
 
   get '/' do
-    session.clear
-    redirect '/log'
-  end
-
-  get '/log' do
-    session[:messages] ||= []
-    @messages = session[:messages]
+    @messages = Message.all
     erb :index
   end
 
   post '/message' do
-    session[:messages] << Message.new(params[:message])
-    redirect '/log'
+    Message.create(text: params[:message])
+    redirect '/'
   end
 
   get '/messages/:id' do
-    @messages = session[:messages]
+    @messages = Message.all
     @id = params[:id]
     erb(:messages)
   end
