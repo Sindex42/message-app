@@ -17,10 +17,10 @@ feature 'Submitting a message' do
 
   scenario 'it displays only the first 20 characters of a message' do
     visit '/'
-    fill_in :message, with: 'MessageExceeds20Character'
+    fill_in :message, with: 'This Message Exceeds 20 Characters'
     click_button 'Submit'
 
-    expect(page).to have_content 'MessageExceeds20Char'
-    expect(page).not_to have_content 'acter'
+    expect(page).to have_content 'This Message Exceeds'
+    expect(page).not_to have_content ' 20 Characters'
   end
 end

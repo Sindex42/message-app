@@ -14,8 +14,8 @@
     <% @messages.reverse.each do |message| %>
       <div>
         <a href="/messages/<%= message.id %>">
-          <%= message.text.slice(0...20) %></a> --
-          <%= message.created_at %>
+          <%= message.shorten %></a> --
+          <%= message.format_time %>
       </div>
     <% end %>
   </body>

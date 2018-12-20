@@ -5,6 +5,7 @@ require './config/data_mapper'
 
 class MessageBoard < Sinatra::Base
   enable :sessions
+  ENV['RACK_ENV'] ||= 'development'
 
   get '/' do
     @messages = Message.all
