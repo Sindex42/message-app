@@ -2,6 +2,7 @@ require 'message'
 
 describe Message do
   subject(:message) { described_class.create(text: 'Test message') }
+  let(:time) { Time.now }
 
   context 'messages longer than 20 characters' do
     describe '#shorten' do
@@ -12,9 +13,10 @@ describe Message do
     end
   end
 
-  # describe '#format_time' do
-  #   it 'formats the time' do
-  #
-  #   end
-  # end
+  describe '#format_time' do
+    it 'formats the time' do
+      allow(message).to receive(:created_at) { time }
+      expect(message.format_time).to eq time.strftime('%d-%m-%y %H:%M:%S')
+    end
+  end
 end
