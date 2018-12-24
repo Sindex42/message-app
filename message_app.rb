@@ -5,21 +5,13 @@ require './config/data_mapper'
 
 class MessageBoard < Sinatra::Base
   enable :sessions
+  enable :method_override
+
   ENV['RACK_ENV'] ||= 'development'
 
   get '/' do
     @messages = Message.all
     erb :index
-  end
-
-  post '/' do
-    @messages = Message.all
-    erb :index
-  end
-
-  post '/message' do
-    Message.create(text: params[:message])
-    redirect '/'
   end
 
   get '/messages/:id' do
@@ -30,6 +22,20 @@ class MessageBoard < Sinatra::Base
   get '/messages/:id/edit' do
     @message = Message.get(params[:id])
     erb :edit
+  end
+
+  # post
+  post '/message' do
+    Message.create(text: params[:message])
+    redirect '/'
+  end
+
+  #put
+  put '/message/:id' do |id|
+    @message = Message.get(params[:id])
+    @message.update!(params[:message])
+
+    redirect "/"
   end
 
   run! if app_file == $0
