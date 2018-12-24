@@ -5,8 +5,4 @@ DataMapper.setup(
 )
 DataMapper.finalize
 
-if ENV['RACK_ENV'] == 'test'
-  DataMapper.auto_migrate!
-else
-  DataMapper.auto_upgrade!
-end
+ENV['RACK_ENV'] == 'test' ? DataMapper.auto_migrate! : DataMapper.auto_upgrade!

@@ -12,6 +12,11 @@ class MessageBoard < Sinatra::Base
     erb :index
   end
 
+  post '/' do
+    @messages = Message.all
+    erb :index
+  end
+
   post '/message' do
     Message.create(text: params[:message])
     redirect '/'
@@ -19,7 +24,12 @@ class MessageBoard < Sinatra::Base
 
   get '/messages/:id' do
     @message = Message.get(params[:id])
-    erb(:messages)
+    erb :messages
+  end
+
+  get '/messages/:id/edit' do
+    @message = Message.get(params[:id])
+    erb :edit
   end
 
   run! if app_file == $0

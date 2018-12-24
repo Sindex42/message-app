@@ -1,0 +1,13 @@
+<form action="/" method="post">
+  <input type="text" name="message" value="<%= @message.text %>">
+  <input type="submit" value="edit">
+</form>
+
+<h1>Edit your message</h1>
+  <form action="/" method="post">
+    <textarea name="message" rows="5" cols="50"
+              placeholder="Type message here"> <%= @message.text %>
+    </textarea>
+    <input type="submit">
+  </form>
+<br>
