@@ -1,0 +1,15 @@
+<%= @message.text %> <br>
+<br>
+
+<form action="/">
+  <input type="submit" value="Home">
+</form>
+
+<form action="/message/<%= @message.id %>/edit">
+  <input type="submit" value="Edit">
+</form>
+
+<form action="/message/<%= @message.id %>" method="post">
+  <input name="_method" type="hidden" value="delete">
+  <input type="submit" value="Delete">
+</form>

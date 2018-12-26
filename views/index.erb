@@ -16,7 +16,7 @@
 
     <% @messages.reverse.each do |message| %>
       <div>
-        <a href="/messages/<%= message.id %>">
+        <a href="/message/<%= message.id %>">
           <%= message.shorten %></a> --
           <%= message.format_time %>
       </div>

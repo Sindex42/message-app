@@ -1,6 +1,6 @@
 <h1>Edit your message</h1>
   <form action="/message/<%= @message.id %>" method="post">
-    <input name="_method" type="hidden" value="put" />
+    <input name="_method" type="hidden" value="put">
     <textarea name="message[text]" id="text" rows="3" cols="40"><%= @message.text %></textarea>
     <input type="submit" value="Update">
   </form>

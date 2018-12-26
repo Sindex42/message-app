@@ -9,33 +9,45 @@ class MessageBoard < Sinatra::Base
 
   ENV['RACK_ENV'] ||= 'development'
 
+  # display all messages
   get '/' do
     @messages = Message.all
     erb :index
   end
 
-  get '/messages/:id' do
+  # display one message
+  get '/message/:id' do
     @message = Message.get(params[:id])
-    erb :messages
+    erb :show
   end
 
-  get '/messages/:id/edit' do
+  # edit one message
+  get '/message/:id/edit' do
     @message = Message.get(params[:id])
     erb :edit
   end
 
-  # post
+  # POST
+  # create one message
   post '/message' do
     Message.create(text: params[:message])
     redirect '/'
   end
 
-  #put
-  put '/message/:id' do |id|
+  # PUT
+  # update one message
+  put '/message/:id' do
     @message = Message.get(params[:id])
     @message.update!(params[:message])
 
-    redirect "/"
+    redirect '/'
+  end
+
+  # DELETE
+  # delete one message
+  delete '/message/:id' do
+    Message.get(params[:id]).destroy
+    redirect '/'
   end
 
   run! if app_file == $0
