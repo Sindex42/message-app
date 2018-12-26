@@ -20,7 +20,7 @@ feature 'Submitting a message' do
     fill_in :message, with: 'This Message Exceeds 20 Characters'
     click_button 'Submit'
 
-    expect(page).to have_content 'This Message Exceeds'
+    expect(page).to have_link 'This Message Exceeds'
     expect(page).not_to have_content ' 20 Characters'
   end
 end

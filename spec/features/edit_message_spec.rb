@@ -1,4 +1,4 @@
-feature 'Editing message' do
+feature 'Editing a message' do
   background { add_and_view_full_message() }
 
   scenario 'returning to the index page without editing' do
@@ -12,7 +12,7 @@ feature 'Editing message' do
   scenario 'proceeding to page to edit message' do
     click_link 'edit'
 
-    expect(page).to have_content ('All your test belong to us')
+    expect(find_field().value).to eq 'All your test belong to us'
   end
 
   scenario 'editing message' do
