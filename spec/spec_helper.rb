@@ -11,7 +11,6 @@ require 'simplecov'
 require 'simplecov-console'
 
 Capybara.app = MessageBoard
-DatabaseCleaner.strategy = :transaction
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
@@ -19,11 +18,10 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 ])
 SimpleCov.start
 
-
 RSpec.configure do |config|
   config.before(:suite) do
-   DatabaseCleaner.strategy = :transaction
-   DatabaseCleaner.clean_with(:truncation)
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
   end
 
   config.around(:each) do |example|
