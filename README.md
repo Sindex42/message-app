@@ -44,9 +44,20 @@ I would like to be able to delete a message from the history
 1. Clone this repo `git clone git@github.com:Sindex42/message-app.git`
 2. Change directory `cd message-app`
 3. Run bundle to install dependencies `bundle install`
-4. Run rackup to start the server `rackup`
-5. Open up a browser and navigate to the following page [http://localhost:9292](http://localhost:9292)
-6. Run the tests with `rspec` in the project root folder
+
+### Setting up the databases
+
+1. Install postgresql `brew install postgres`
+2. Open up postgresql from the command line `psql`
+3. Create the development database `CREATE DATABASE message_app_development;`
+4. Create the test database `CREATE DATABASE message_app_test;`
+5. Set up the tables `db:auto_migrate`
+
+### Running tests
+
+1. Run rackup to start the server `rackup`
+2. Open up a browser and navigate to the following page [http://localhost:9292](http://localhost:9292)
+3. Run the tests with `rspec` in the project root folder
 
 
 ## Usage
