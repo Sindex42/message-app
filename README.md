@@ -16,11 +16,27 @@ I would like to see a history of previous messages
 
 As user
 So that I can remember when I made a post
-I would like to see the time ar which the message was posted
+I would like to see the time at which the message was posted
 
 As a user
 So that I can share my thoughts
 I would like to see the messages with the newest ones on the top
+
+As a user
+So that I can have an overview of the entire message history
+I would like to only see the first 20 characters of any individual message
+
+As a user 
+So that I can read the complete text of a message
+I would like to be able to click on a particular message and see the whole thing
+
+As a user
+So that I can change a message in the history
+I would like to be able to edit a particular message
+
+As a user
+So that I can forget what I've written
+I would like to be able to delete a message from the history
 ```
 
 ## Getting started
@@ -35,6 +51,19 @@ I would like to see the messages with the newest ones on the top
 
 ## Usage
 
+### Submitting a message
+
 1. Enter your message in the prompted field and click 'Submit'
 2. Repeat as neccessary
 3. Bask in the history of your previous ramblings
+
+### Editing a message 
+
+1. Click on a partial message link
+2. Edit the message
+3. Click the 'Edit' button 
+
+### Deleting a message
+
+1. Click on a partial message link
+2. Click the 'Delete' button 
