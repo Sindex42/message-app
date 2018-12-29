@@ -19,8 +19,8 @@ So that I can remember when I made a post
 I would like to see the time at which the message was posted
 
 As a user
-So that I can share my thoughts
-I would like to see the messages with the newest ones on the top
+So that I can follow a sequence of messages
+I would like to see the list of messages with the newest ones on the top
 
 As a user
 So that I can have an overview of the entire message history
