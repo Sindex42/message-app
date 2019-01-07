@@ -2,7 +2,7 @@ feature 'Submitting a message' do
   scenario 'adding a message to the history' do
     add_message_and_submit
 
-    expect(page).to have_content 'Messaging App'
+    expect(page).to have_current_path '/'
     expect(page).to have_content 'Just foo, no bar'
   end
 

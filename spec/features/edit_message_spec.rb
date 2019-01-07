@@ -4,9 +4,7 @@ feature 'Editing a message' do
   scenario 'returning to the index page without editing' do
     click_button 'Home'
 
-    expect(page).to have_content 'Messaging App'
-    find_field('Type message here').value
-    find_button('Submit').click
+    expect(page).to have_current_path '/'
   end
 
   scenario 'proceeding to page to edit message' do
