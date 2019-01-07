@@ -1,9 +1,12 @@
 namespace :db do
   task :setup do
     require './lib/message'
+    require './lib/tag'
     require 'data_mapper'
 
-    DataMapper.setup(:default, "postgres://localhost/message_app_development")
+    DataMapper.setup(
+      :default, "postgres://localhost/message_app_#{ENV['RACK_ENV']}"
+    )
     DataMapper.finalize
   end
 

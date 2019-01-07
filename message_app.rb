@@ -1,6 +1,7 @@
 require 'pry'
 require 'sinatra/base'
 require './lib/message'
+require './lib/tag'
 require './config/data_mapper'
 
 class MessageBoard < Sinatra::Base
@@ -31,6 +32,7 @@ class MessageBoard < Sinatra::Base
   # create one message
   post '/message' do
     Message.create(text: params[:message])
+    Tag.create(name: params[:tag])
     redirect '/'
   end
 
