@@ -2,7 +2,7 @@ feature 'Adding a tag' do
   scenario 'viewing field to add tag' do
     visit '/'
 
-    find_field('add tag').value
+    find_field('Add tag').value
   end
 
   scenario 'seeing a tag attached to a message' do

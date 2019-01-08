@@ -1,7 +1,5 @@
 require 'pry'
 require 'sinatra/base'
-require './lib/message'
-require './lib/tag'
 require './config/data_mapper'
 
 class MessageBoard < Sinatra::Base
@@ -10,9 +8,11 @@ class MessageBoard < Sinatra::Base
 
   ENV['RACK_ENV'] ||= 'development'
 
+  # GET
   # display all messages
   get '/' do
     @messages = Message.all
+
     erb :index
   end
 
@@ -22,7 +22,7 @@ class MessageBoard < Sinatra::Base
     erb :show
   end
 
-  # edit one message
+  # display edit message
   get '/message/:id/edit' do
     @message = Message.get(params[:id])
     erb :edit
@@ -51,7 +51,7 @@ class MessageBoard < Sinatra::Base
   # DELETE
   # delete one message
   delete '/message/:id' do
-    Message.get(params[:id]).destroy
+    Message.get(params[:id]).destroy!
     redirect '/'
   end
 
