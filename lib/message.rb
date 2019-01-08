@@ -7,6 +7,8 @@ class Message
   property :text, Text
   property :created_at, DateTime
 
+  has n, :tags, :through => Resource
+
   def shorten
     text.slice(0...20)
   end

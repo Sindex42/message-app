@@ -31,8 +31,11 @@ class MessageBoard < Sinatra::Base
   # POST
   # create one message
   post '/message' do
-    Message.create(text: params[:message])
-    Tag.create(name: params[:tag])
+    message = Message.create(text: params[:message])
+    tag = Tag.first_or_create(name: params[:tag])
+    message.tags << tag
+    message.save
+
     redirect '/'
   end
 

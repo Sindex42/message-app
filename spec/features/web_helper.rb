@@ -10,3 +10,11 @@ def add_and_view_full_message
   click_button 'Submit'
   click_link 'All your test belong'
 end
+
+def add_and_view_message_with_tag
+  visit '/'
+  fill_in :message, with: 'All your tags belong to us'
+  fill_in :tag, with: 'Base'
+  click_button 'Submit'
+  click_link 'All your tags belong'
+end
